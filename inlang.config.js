@@ -2,7 +2,7 @@
  * @type { import("@inlang/core/config").DefineConfig }
  */
 export async function defineConfig(env) {
-  const { default: i18nextPlugin } = await env.$import(
+ const { default: pluginJson } = await env.$import(
 		"https://cdn.jsdelivr.net/npm/@inlang/plugin-json@3/dist/index.js",
 	)
 
@@ -13,7 +13,7 @@ export async function defineConfig(env) {
   return {
     referenceLanguage: "en",
     plugins: [
-      i18nextPlugin({ pathPattern: "app/i18n/locales/{language}/*.json" }),
+      pluginJson({ pathPattern: "app/i18n/locales/{language}/*.json" }),
       standardLintRules(),
     ],
   };
