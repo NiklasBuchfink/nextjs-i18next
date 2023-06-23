@@ -1838,7 +1838,7 @@ async function Hi(e) {
           (Se[`${a}/${u}`] = f.endsWith(`
 `)),
             (X[`${a}/${u}`] = ze(f)),
-            (r = [...r, ...ue(JSON.parse(f), [], u)]);
+            (r = [...r, ...ue(JSON.parse(f), [], u.replace(".json", ""))]);
         }
       } else {
         let a = await e.$fs.readFile(i, { encoding: "utf-8" });
