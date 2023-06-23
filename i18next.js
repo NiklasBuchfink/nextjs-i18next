@@ -1901,7 +1901,7 @@ async function Vi(e) {
           u,
           Kt(o, X[u] ?? Ht(), Se[u], e.settings.variableReferencePattern)
         ),
-          console.log(e.$fs.readFile(`${u}`, { encoding: "utf-8" }));
+          console.log(await e.$fs.readFile(`${u}`, { encoding: "utf-8" }));
       }
     } else throw new Error("None-exhaustive if statement in writeResources");
   }
