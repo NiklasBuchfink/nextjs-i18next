@@ -17,7 +17,7 @@ var rn = (e, t, n, r) => {
   return e;
 };
 var Ve = (e, t, n) => (
-  (n = e != undefined ? Xt(tn(e)) : {}),
+  (n = e != null ? Xt(tn(e)) : {}),
   rn(
     t || !e || !e.__esModule
       ? Ke(n, "default", { value: e, enumerable: !0 })
@@ -184,7 +184,7 @@ var St = Je((q, M) => {
     })();
   function I(e) {
     var t = -1,
-      n = e == undefined ? 0 : e.length;
+      n = e == null ? 0 : e.length;
     for (this.clear(); ++t < n; ) {
       var r = e[t];
       this.set(r[0], r[1]);
@@ -224,7 +224,7 @@ var St = Je((q, M) => {
   I.prototype.set = nr;
   function x(e) {
     var t = -1,
-      n = e == undefined ? 0 : e.length;
+      n = e == null ? 0 : e.length;
     for (this.clear(); ++t < n; ) {
       var r = e[t];
       this.set(r[0], r[1]);
@@ -260,7 +260,7 @@ var St = Je((q, M) => {
   x.prototype.set = ur;
   function N(e) {
     var t = -1,
-      n = e == undefined ? 0 : e.length;
+      n = e == null ? 0 : e.length;
     for (this.clear(); ++t < n; ) {
       var r = e[t];
       this.set(r[0], r[1]);
@@ -366,7 +366,7 @@ var St = Je((q, M) => {
   }
   var wr = Cr();
   function ie(e) {
-    return e == undefined
+    return e == null
       ? e === void 0
         ? _n
         : mn
@@ -451,7 +451,7 @@ var St = Je((q, M) => {
       }
     : xt;
   function Or(e, t) {
-    if (t) return [...e];
+    if (t) return e.slice();
     var n = e.length,
       r = tt ? tt(n) : new e.constructor(n);
     return e.copy(r), r;
@@ -563,7 +563,7 @@ var St = Je((q, M) => {
   }
   function Fr(e) {
     var t = [];
-    if (e != undefined) for (var n in Object(e)) t.push(n);
+    if (e != null) for (var n in Object(e)) t.push(n);
     return t;
   }
   function zr(e) {
@@ -603,7 +603,7 @@ var St = Je((q, M) => {
     };
   }
   function Gr(e) {
-    if (e != undefined) {
+    if (e != null) {
       try {
         return ne.call(e);
       } catch {}
@@ -627,7 +627,7 @@ var St = Je((q, M) => {
         },
     je = Array.isArray;
   function Ne(e) {
-    return e != undefined && wt(e.length) && !De(e);
+    return e != null && wt(e.length) && !De(e);
   }
   function Hr(e) {
     return K(e) && Ne(e);
@@ -643,10 +643,10 @@ var St = Je((q, M) => {
   }
   function $(e) {
     var t = typeof e;
-    return e != undefined && (t == "object" || t == "function");
+    return e != null && (t == "object" || t == "function");
   }
   function K(e) {
-    return e != undefined && typeof e == "object";
+    return e != null && typeof e == "object";
   }
   function Kr(e) {
     if (!K(e) || ie(e) != ft) return !1;
@@ -705,7 +705,7 @@ var qt = Je((oa, Wt) => {
   function O(e, t) {
     return C(
       function (n, r, i, a) {
-        return [...n, e(r, i, a)];
+        return n.concat([e(r, i, a)]);
       },
       [],
       t
@@ -991,7 +991,7 @@ var qt = Je((oa, Wt) => {
   function pi(e, t) {
     if (ri() && Array.from) {
       for (var n = new Set(e), r = 0; r < t.length; r++) n.add(t[r]);
-      var i = [...n];
+      var i = Array.from(n);
       return i.sort(), i;
     }
     for (var a = {}, o = 0; o < e.length; o++) a[e[o]] = !0;
@@ -1052,7 +1052,7 @@ var qt = Je((oa, Wt) => {
     var n = e.length,
       r = [],
       i = 0;
-    if (n <= t) return [[...e]];
+    if (n <= t) return [e.slice()];
     for (var a = 0; a < n; a++)
       r[i] || r.push([]), r[i].push(e[a]), (a + 1) % t === 0 && i++;
     return r;
@@ -1521,12 +1521,12 @@ var qt = Je((oa, Wt) => {
   function Bi(e) {
     for (var t = e.split(""), n = 0; n < t.length; n++) t[n] = "'" + t[n] + "'";
     return Ee(function (r) {
-      return e.includes(r);
+      return e.indexOf(r) >= 0;
     }).desc(t);
   }
   function Ai(e) {
     return Ee(function (t) {
-      return !e.includes(t);
+      return e.indexOf(t) < 0;
     }).desc("none of '" + e + "'");
   }
   function Ii(e) {
@@ -1842,7 +1842,7 @@ async function Hi(e) {
           (Se[`${a}/${u}`] = f.endsWith(`
 `)),
             (X[`${a}/${u}`] = ze(f)),
-            (r = [...r, ...ue(JSON.parse(f), [], u)]);
+            (r = [...r, ...ue(JSON.parse(f), [], u.replace(".json", ""))]);
         }
       } else {
         let a = await e.$fs.readFile(i, { encoding: "utf-8" });
@@ -1891,7 +1891,7 @@ async function Vi(e) {
         let [i] = n.split(t.languageTag.name);
         await e.$fs.mkdir(i);
       } catch {}
-      let r = new Set(t.body.map((i) => i.metadata?.fileName));
+      let r = new Set(t.body.map((i) => i.id.name.split(".")[0]));
       for (let i of r) {
         let a = t.body
             .filter((f) => f.id.name.startsWith(i))
