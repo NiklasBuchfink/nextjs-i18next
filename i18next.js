@@ -1891,7 +1891,7 @@ async function Vi(e) {
       try {
         await e.$fs.readdir(r);
       } catch {
-        await e.$fs.mkdir(r);
+        console.log(r), await e.$fs.mkdir(r);
       }
       let i = new Set(t.body.map((a) => a.id.name.split(".")[0]));
       for (let a of i) {
