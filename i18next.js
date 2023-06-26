@@ -1884,7 +1884,7 @@ async function Vi(e) {
       );
     else if (xe) {
       try {
-        let [i] = n.split(t.languageTag.name);
+        let [i] = n.split(t.languageTag.name.toString())[1].includes("/");
         await e.$fs.mkdir(i);
       } catch {}
       let r = new Set(t.body.map((i) => i.id.name.split(".")[0]));
