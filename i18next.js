@@ -335,16 +335,16 @@ var St = Je((q, M) => {
       o = n || r || i || a,
       u = o ? Fn(e.length, String) : [],
       f = u.length;
-    for (var l in e)
-      (t || E.call(e, l)) &&
+    for (var c in e)
+      (t || E.call(e, c)) &&
         !(
           o &&
-          (l == "length" ||
-            (i && (l == "offset" || l == "parent")) ||
-            (a && (l == "buffer" || l == "byteLength" || l == "byteOffset")) ||
-            vt(l, f))
+          (c == "length" ||
+            (i && (c == "offset" || c == "parent")) ||
+            (a && (c == "buffer" || c == "byteLength" || c == "byteOffset")) ||
+            vt(c, f))
         ) &&
-        u.push(l);
+        u.push(c);
     return u;
   }
   function $e(e, t, n) {
@@ -409,9 +409,9 @@ var St = Je((q, M) => {
   function Sr(e, t, n, r, i, a, o) {
     var u = Re(e, n),
       f = Re(t, n),
-      l = o.get(f);
-    if (l) {
-      $e(e, n, l);
+      c = o.get(f);
+    if (c) {
+      $e(e, n, c);
       return;
     }
     var g = a ? a(u, f, n + "", e, t, o) : void 0,
@@ -684,7 +684,7 @@ var qt = Je((oa, Wt) => {
     if (!(this instanceof s)) return new s(e);
     this._ = e;
   }
-  var c = s.prototype;
+  var l = s.prototype;
   function Bt(e, t) {
     var n = 0;
     for (n; n < e; n++) t(n);
@@ -800,8 +800,8 @@ var qt = Je((oa, Wt) => {
             o,
             C(
               function (u, f) {
-                var l = Yr(f, u.buf);
-                return { coll: u.coll.concat(l.v), buf: l.buf };
+                var c = Yr(f, u.buf);
+                return { coll: u.coll.concat(c.v), buf: c.buf };
               },
               { coll: [], buf: i.slice(a, o) },
               e
@@ -839,12 +839,12 @@ var qt = Je((oa, Wt) => {
         return o[1];
       }, r);
     return It(a).map(function (o) {
-      var u = O(function (f, l) {
-        return [f, o[l]];
+      var u = O(function (f, c) {
+        return [f, o[c]];
       }, i);
       return C(
-        function (f, l) {
-          return l[0] !== null && (f[l[0]] = l[1]), f;
+        function (f, c) {
+          return c[0] !== null && (f[c[0]] = c[1]), f;
         },
         {},
         u
@@ -997,7 +997,7 @@ var qt = Je((oa, Wt) => {
     for (var a = {}, o = 0; o < e.length; o++) a[e[o]] = !0;
     for (var u = 0; u < t.length; u++) a[t[u]] = !0;
     var f = [];
-    for (var l in a) ({}).hasOwnProperty.call(a, l) && f.push(l);
+    for (var c in a) ({}).hasOwnProperty.call(a, c) && f.push(c);
     return f.sort(), f;
   }
   function z(e) {
@@ -1073,7 +1073,7 @@ var qt = Je((oa, Wt) => {
       o,
       u,
       f,
-      l;
+      c;
     if (r === e.length) return "Got the end of the input";
     if (J(e)) {
       var g = r - (r % B),
@@ -1096,20 +1096,20 @@ var qt = Je((oa, Wt) => {
             ? T.join(" ")
             : T.slice(0, 4).join(" ") + "  " + T.slice(4).join(" ");
         }, Vt)),
-        (l = ((f.to > 0 ? f.to - 1 : f.to) * 8).toString(16).length),
-        l < 2 && (l = 2);
+        (c = ((f.to > 0 ? f.to - 1 : f.to) * 8).toString(16).length),
+        c < 2 && (c = 2);
     } else {
       var Ge = e.split(/\r\n|[\n\r\u2028\u2029]/);
       (a = n.column - 1),
         (o = n.line - 1),
         (f = Ot(o, mi, vi, Ge.length)),
         (u = Ge.slice(f.from, f.to)),
-        (l = f.to.toString().length);
+        (c = f.to.toString().length);
     }
     var kt = o - f.from;
     J(e) &&
-      ((l = ((f.to > 0 ? f.to - 1 : f.to) * 8).toString(16).length),
-      l < 2 && (l = 2));
+      ((c = ((f.to > 0 ? f.to - 1 : f.to) * 8).toString(16).length),
+      c < 2 && (c = 2));
     var Qt = C(
       function (T, Pe, Te) {
         var He = Te === kt,
@@ -1117,12 +1117,12 @@ var qt = Je((oa, Wt) => {
           Oe;
         return (
           J(e)
-            ? (Oe = ge(((f.from + Te) * 8).toString(16), l, "0"))
-            : (Oe = ge((f.from + Te + 1).toString(), l, " ")),
+            ? (Oe = ge(((f.from + Te) * 8).toString(16), c, "0"))
+            : (Oe = ge((f.from + Te + 1).toString(), c, " ")),
           [].concat(
             T,
             [Zt + Oe + " | " + Pe],
-            He ? [Tt + de(" ", l) + " | " + ge("", a, " ") + de("^", i)] : []
+            He ? [Tt + de(" ", c) + " | " + ge("", a, " ") + de("^", i)] : []
           )
         );
       },
@@ -1199,18 +1199,18 @@ var qt = Je((oa, Wt) => {
     }
     if (t === 0)
       throw new Error("seqObj expects at least one named parser, found zero");
-    return s(function (f, l) {
+    return s(function (f, c) {
       for (var g, b = {}, m = 0; m < r; m += 1) {
         var w, P;
         if (
           (F(n[m]) ? ((w = n[m][0]), (P = n[m][1])) : ((w = null), (P = n[m])),
-          (g = y(P._(f, l), g)),
+          (g = y(P._(f, c), g)),
           !g.status)
         )
           return g;
-        w && (b[w] = g.value), (l = g.index);
+        w && (b[w] = g.value), (c = g.index);
       }
-      return y(d(l, b), g);
+      return y(d(c, b), g);
     });
   }
   function j() {
@@ -1257,7 +1257,7 @@ var qt = Je((oa, Wt) => {
       return [r].concat(i);
     });
   }
-  c.parse = function (e) {
+  l.parse = function (e) {
     if (typeof e != "string" && !J(e))
       throw new Error(
         ".parse must be called with a string or Buffer as its argument"
@@ -1272,33 +1272,33 @@ var qt = Je((oa, Wt) => {
       n
     );
   };
-  c.tryParse = function (e) {
+  l.tryParse = function (e) {
     var t = this.parse(e);
     if (t.status) return t.value;
     var n = Rt(e, t),
       r = new Error(n);
     throw ((r.type = "ParsimmonError"), (r.result = t), r);
   };
-  c.assert = function (e, t) {
+  l.assert = function (e, t) {
     return this.chain(function (n) {
       return e(n) ? L(n) : _e(t);
     });
   };
-  c.or = function (e) {
+  l.or = function (e) {
     return we(this, e);
   };
-  c.trim = function (e) {
+  l.trim = function (e) {
     return this.wrap(e, e);
   };
-  c.wrap = function (e, t) {
+  l.wrap = function (e, t) {
     return j(e, this, t, function (n, r) {
       return r;
     });
   };
-  c.thru = function (e) {
+  l.thru = function (e) {
     return e(this);
   };
-  c.then = function (e) {
+  l.then = function (e) {
     return (
       z(e),
       be(this, e).map(function (t) {
@@ -1306,7 +1306,7 @@ var qt = Je((oa, Wt) => {
       })
     );
   };
-  c.many = function () {
+  l.many = function () {
     var e = this;
     return s(function (t, n) {
       for (var r = [], i = void 0; ; )
@@ -1319,7 +1319,7 @@ var qt = Je((oa, Wt) => {
         } else return y(d(n, r), i);
     });
   };
-  c.tieWith = function (e) {
+  l.tieWith = function (e) {
     return (
       V(e),
       this.map(function (t) {
@@ -1331,10 +1331,10 @@ var qt = Je((oa, Wt) => {
       })
     );
   };
-  c.tie = function () {
+  l.tie = function () {
     return this.tieWith("");
   };
-  c.times = function (e, t) {
+  l.times = function (e, t) {
     var n = this;
     return (
       arguments.length < 2 && (t = e),
@@ -1351,20 +1351,20 @@ var qt = Je((oa, Wt) => {
       })
     );
   };
-  c.result = function (e) {
+  l.result = function (e) {
     return this.map(function () {
       return e;
     });
   };
-  c.atMost = function (e) {
+  l.atMost = function (e) {
     return this.times(0, e);
   };
-  c.atLeast = function (e) {
+  l.atLeast = function (e) {
     return j(this.times(e), this.many(), function (t, n) {
       return t.concat(n);
     });
   };
-  c.map = function (e) {
+  l.map = function (e) {
     R(e);
     var t = this;
     return s(function (n, r) {
@@ -1372,7 +1372,7 @@ var qt = Je((oa, Wt) => {
       return i.status ? y(d(i.index, e(i.value)), i) : i;
     });
   };
-  c.contramap = function (e) {
+  l.contramap = function (e) {
     R(e);
     var t = this;
     return s(function (n, r) {
@@ -1380,37 +1380,37 @@ var qt = Je((oa, Wt) => {
       return i.status ? d(r + n.length, i.value) : i;
     });
   };
-  c.promap = function (e, t) {
+  l.promap = function (e, t) {
     return R(e), R(t), this.contramap(e).map(t);
   };
-  c.skip = function (e) {
+  l.skip = function (e) {
     return be(this, e).map(function (t) {
       return t[0];
     });
   };
-  c.mark = function () {
+  l.mark = function () {
     return j(Q, this, Q, function (e, t, n) {
       return { start: e, value: t, end: n };
     });
   };
-  c.node = function (e) {
+  l.node = function (e) {
     return j(Q, this, Q, function (t, n, r) {
       return { name: e, value: n, start: t, end: r };
     });
   };
-  c.sepBy = function (e) {
+  l.sepBy = function (e) {
     return jt(this, e);
   };
-  c.sepBy1 = function (e) {
+  l.sepBy1 = function (e) {
     return We(this, e);
   };
-  c.lookahead = function (e) {
+  l.lookahead = function (e) {
     return this.skip(he(e));
   };
-  c.notFollowedBy = function (e) {
+  l.notFollowedBy = function (e) {
     return this.skip(Lt(e));
   };
-  c.desc = function (e) {
+  l.desc = function (e) {
     F(e) || (e = [e]);
     var t = this;
     return s(function (n, r) {
@@ -1418,15 +1418,15 @@ var qt = Je((oa, Wt) => {
       return i.status || (i.expected = e), i;
     });
   };
-  c.fallback = function (e) {
+  l.fallback = function (e) {
     return this.or(L(e));
   };
-  c.ap = function (e) {
+  l.ap = function (e) {
     return j(e, this, function (t, n) {
       return t(n);
     });
   };
-  c.chain = function (e) {
+  l.chain = function (e) {
     var t = this;
     return s(function (n, r) {
       var i = t._(n, r);
@@ -1471,8 +1471,8 @@ var qt = Je((oa, Wt) => {
             f = o[t];
           return d(a + u.length, f);
         }
-        var l = "valid match group (0 to " + o.length + ") in " + r;
-        return v(a, l);
+        var c = "valid match group (0 to " + o.length + ") in " + r;
+        return v(a, c);
       }
       return v(a, r);
     });
@@ -1556,15 +1556,15 @@ var qt = Je((oa, Wt) => {
   function qe() {
     return _e("fantasy-land/empty");
   }
-  c.concat = c.or;
-  c.empty = qe;
-  c.of = L;
-  c["fantasy-land/ap"] = c.ap;
-  c["fantasy-land/chain"] = c.chain;
-  c["fantasy-land/concat"] = c.concat;
-  c["fantasy-land/empty"] = c.empty;
-  c["fantasy-land/of"] = c.of;
-  c["fantasy-land/map"] = c.map;
+  l.concat = l.or;
+  l.empty = qe;
+  l.of = L;
+  l["fantasy-land/ap"] = l.ap;
+  l["fantasy-land/chain"] = l.chain;
+  l["fantasy-land/concat"] = l.concat;
+  l["fantasy-land/empty"] = l.empty;
+  l["fantasy-land/of"] = l.of;
+  l["fantasy-land/map"] = l.map;
   var Q = s(function (e, t) {
       return d(t, $t(e, t));
     }),
@@ -1837,7 +1837,7 @@ async function Hi(e) {
         let a = `${i.replace("/*.json", "")}`,
           o = await e.$fs.readdir(a);
         for (let u of o) {
-          if (e.settings.ignore?.some((l) => l === u) === !0) continue;
+          if (e.settings.ignore?.some((c) => c === u) === !0) continue;
           let f = await e.$fs.readFile(`${a}/${u}`, { encoding: "utf-8" });
           (Se[`${a}/${u}`] = f.endsWith(`
 `)),
@@ -1887,23 +1887,25 @@ async function Vi(e) {
         Kt(t, X[n] ?? Ht(), Se[n], e.settings.variableReferencePattern)
       );
     else if (xe) {
+      let [r] = n.split(t.languageTag.name);
       try {
-        let [i] = n.split(t.languageTag.name);
-        await e.$fs.mkdir(i);
-      } catch {}
-      let r = new Set(t.body.map((i) => i.id.name.split(".")[0]));
-      for (let i of r) {
-        let a = t.body
-            .filter((f) => f.id.name.startsWith(i))
-            .map((f) => ({
-              ...f,
-              id: { ...f.id, name: f.id.name.replace(`${i}.`, "") },
+        await e.$fs.readdir(r);
+      } catch {
+        await e.$fs.mkdir(r);
+      }
+      let i = new Set(t.body.map((a) => a.id.name.split(".")[0]));
+      for (let a of i) {
+        let o = t.body
+            .filter((c) => c.id.name.startsWith(a))
+            .map((c) => ({
+              ...c,
+              id: { ...c.id, name: c.id.name.replace(`${a}.`, "") },
             })),
-          o = { type: t.type, languageTag: t.languageTag, body: a },
-          u = n.replace("*", i);
+          u = { type: t.type, languageTag: t.languageTag, body: o },
+          f = n.replace("*", a);
         await e.$fs.writeFile(
-          u,
-          Kt(o, X[u] ?? Ht(), Se[u], e.settings.variableReferencePattern)
+          f,
+          Kt(u, X[f] ?? Ht(), Se[f], e.settings.variableReferencePattern)
         );
       }
     } else throw new Error("None-exhaustive if statement in writeResources");
