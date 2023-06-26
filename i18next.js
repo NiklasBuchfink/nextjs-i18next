@@ -92,13 +92,13 @@ var St = Je((q, M) => {
     U = lt && typeof M == "object" && M && !M.nodeType && M,
     gt = U && U.exports === lt,
     Ie = gt && ct.process,
-    Qe = (function () {
+    ke = (function () {
       try {
         var e = U && U.require && U.require("util").types;
         return e || (Ie && Ie.binding && Ie.binding("util"));
       } catch {}
     })(),
-    Ze = Qe && Qe.isTypedArray;
+    Ze = ke && ke.isTypedArray;
   function Dn(e, t, n) {
     switch (n.length) {
       case 0:
@@ -167,9 +167,9 @@ var St = Je((q, M) => {
         return e({}, "", {}), e;
       } catch {}
     })(),
-    kn = Y ? Y.isBuffer : void 0,
+    Qn = Y ? Y.isBuffer : void 0,
     rt = Math.max,
-    Qn = Date.now,
+    kn = Date.now,
     ht = Me(H, "Map"),
     G = Me(Object, "create"),
     Zn = (function () {
@@ -445,7 +445,7 @@ var St = Je((q, M) => {
         return ee(e, "toString", {
           configurable: !0,
           enumerable: !1,
-          value: kr(t),
+          value: Qr(t),
           writable: !0,
         });
       }
@@ -594,7 +594,7 @@ var St = Je((q, M) => {
     var t = 0,
       n = 0;
     return function () {
-      var r = Qn(),
+      var r = kn(),
         i = un - (r - n);
       if (((n = r), i > 0)) {
         if (++t >= on) return arguments[0];
@@ -632,7 +632,7 @@ var St = Je((q, M) => {
   function Hr(e) {
     return K(e) && Ne(e);
   }
-  var bt = kn || Qr;
+  var bt = Qn || kr;
   function De(e) {
     if (!$(e)) return !1;
     var t = ie(e);
@@ -665,7 +665,7 @@ var St = Je((q, M) => {
   var Vr = Rr(function (e, t, n) {
     vt(e, t, n);
   });
-  function kr(e) {
+  function Qr(e) {
     return function () {
       return e;
     };
@@ -673,7 +673,7 @@ var St = Je((q, M) => {
   function xt(e) {
     return e;
   }
-  function Qr() {
+  function kr() {
     return !1;
   }
   M.exports = Vr;
@@ -933,7 +933,7 @@ var qt = Je((oa, Wt) => {
   function gi(e) {
     return Array.prototype.slice.call(e);
   }
-  function k(e) {
+  function Q(e) {
     return e instanceof s;
   }
   function F(e) {
@@ -1001,7 +1001,7 @@ var qt = Je((oa, Wt) => {
     return f.sort(), f;
   }
   function z(e) {
-    if (!k(e)) throw new Error("not a parser: " + e);
+    if (!Q(e)) throw new Error("not a parser: " + e);
   }
   function ye(e, t) {
     return typeof e == "string" ? e.charAt(t) : e[t];
@@ -1106,13 +1106,13 @@ var qt = Je((oa, Wt) => {
         (u = Ge.slice(f.from, f.to)),
         (l = f.to.toString().length);
     }
-    var kt = o - f.from;
+    var Qt = o - f.from;
     J(e) &&
       ((l = ((f.to > 0 ? f.to - 1 : f.to) * 8).toString(16).length),
       l < 2 && (l = 2));
-    var Qt = C(
+    var kt = C(
       function (T, Pe, Te) {
-        var He = Te === kt,
+        var He = Te === Qt,
           Zt = He ? "> " : Tt,
           Oe;
         return (
@@ -1129,7 +1129,7 @@ var qt = Je((oa, Wt) => {
       [],
       u
     );
-    return Qt.join(`
+    return kt.join(`
 `);
   }
   function Rt(e, t) {
@@ -1181,9 +1181,9 @@ var qt = Je((oa, Wt) => {
       i += 1
     ) {
       var a = n[i];
-      if (!k(a)) {
+      if (!Q(a)) {
         if (F(a)) {
-          var o = a.length === 2 && typeof a[0] == "string" && k(a[1]);
+          var o = a.length === 2 && typeof a[0] == "string" && Q(a[1]);
           if (o) {
             var u = a[0];
             if (Object.prototype.hasOwnProperty.call(e, u))
@@ -1389,12 +1389,12 @@ var qt = Je((oa, Wt) => {
     });
   };
   c.mark = function () {
-    return j(Q, this, Q, function (e, t, n) {
+    return j(k, this, k, function (e, t, n) {
       return { start: e, value: t, end: n };
     });
   };
   c.node = function (e) {
-    return j(Q, this, Q, function (t, n, r) {
+    return j(k, this, k, function (t, n, r) {
       return { name: e, value: n, start: t, end: r };
     });
   };
@@ -1488,7 +1488,7 @@ var qt = Je((oa, Wt) => {
     });
   }
   function he(e) {
-    if (k(e))
+    if (Q(e))
       return s(function (t, n) {
         var r = e._(t, n);
         return (r.index = n), (r.value = ""), r;
@@ -1565,7 +1565,7 @@ var qt = Je((oa, Wt) => {
   c["fantasy-land/empty"] = c.empty;
   c["fantasy-land/of"] = c.of;
   c["fantasy-land/map"] = c.map;
-  var Q = s(function (e, t) {
+  var k = s(function (e, t) {
       return d(t, $t(e, t));
     }),
     Ci = s(function (e, t) {
@@ -1604,8 +1604,8 @@ var qt = Je((oa, Wt) => {
   s.eof = Ue;
   s.fail = _e;
   s.formatError = Rt;
-  s.index = Q;
-  s.isParser = k;
+  s.index = k;
+  s.isParser = Q;
   s.lazy = Mt;
   s.letter = Ni;
   s.letters = Di;
@@ -1667,7 +1667,7 @@ var qt = Je((oa, Wt) => {
 function Be(e) {
   return (t) => (n) => e({ settings: t, env: n });
 }
-function ke(e) {
+function Qe(e) {
   if (e.pathPattern === void 0 || e.pathPattern.includes("{language}") === !1)
     throw new Error(
       "The pathPattern setting must be defined and include the {language} placeholder. An example would be './resources/{language}.json'."
@@ -1796,7 +1796,7 @@ function Ht() {
 var Ui = Be(({ settings: e, env: t }) => ({
   id: "inlang.plugin-i18next",
   async config() {
-    ke(e);
+    Qe(e);
     let n = { variableReferencePattern: ["{{", "}}"], ignore: [], ...e };
     return (
       (xe = e.pathPattern.endsWith("/*.json")),
@@ -1871,7 +1871,7 @@ function Ji(e, t) {
       parentKeys: e.parentKeys,
     },
     id: { type: "Identifier", name: e.id },
-    pattern: Qi(e.text, t),
+    pattern: ki(e.text, t),
   };
 }
 async function Vi(e) {
@@ -1883,10 +1883,6 @@ async function Vi(e) {
         Kt(t, X[n] ?? Ht(), Se[n], e.settings.variableReferencePattern)
       );
     else if (xe) {
-      try {
-        let [i] = n.split(t.languageTag.name.toString())[1].includes("/");
-        await e.$fs.mkdir(i);
-      } catch {}
       let r = new Set(t.body.map((i) => i.id.name.split(".")[0]));
       for (let i of r) {
         let a = t.body
@@ -1909,7 +1905,7 @@ function Kt(e, t, n, r) {
   let i = {};
   for (let a of e.body) {
     let o = {},
-      u = ki(a.pattern, r);
+      u = Qi(a.pattern, r);
     a.metadata?.keyName
       ? Fe(o, a.metadata.parentKeys, a.metadata.keyName, u)
       : a.metadata?.fileName
@@ -1925,7 +1921,7 @@ function Kt(e, t, n, r) {
       : "")
   );
 }
-function ki(e, t) {
+function Qi(e, t) {
   let n = [];
   for (let r of e.elements)
     switch (r.type) {
@@ -1940,7 +1936,7 @@ function ki(e, t) {
     }
   return n.join("");
 }
-function Qi(e, t) {
+function ki(e, t) {
   let n = t[1]
     ? new RegExp(`(\\${t[0]}[^\\${t[1]}]+\\${t[1]})`, "g")
     : new RegExp(`(${t}\\w+)`, "g");
