@@ -99,7 +99,7 @@ var St = Je((q, M) => {
       } catch {}
     })(),
     Ze = Qe && Qe.isTypedArray;
-  function Fn(e, t, n) {
+  function Dn(e, t, n) {
     switch (n.length) {
       case 0:
         return e.call(t);
@@ -112,7 +112,7 @@ var St = Je((q, M) => {
     }
     return e.apply(t, n);
   }
-  function Dn(e, t) {
+  function Fn(e, t) {
     for (var n = -1, r = Array(e); ++n < e; ) r[n] = t(n);
     return r;
   }
@@ -294,7 +294,7 @@ var St = Je((q, M) => {
   N.prototype.get = cr;
   N.prototype.has = lr;
   N.prototype.set = gr;
-  function F(e) {
+  function D(e) {
     var t = (this.__data__ = new x(e));
     this.size = t.size;
   }
@@ -322,18 +322,18 @@ var St = Je((q, M) => {
     }
     return n.set(e, t), (this.size = n.size), this;
   }
-  F.prototype.clear = pr;
-  F.prototype.delete = dr;
-  F.prototype.get = hr;
-  F.prototype.has = vr;
-  F.prototype.set = mr;
+  D.prototype.clear = pr;
+  D.prototype.delete = dr;
+  D.prototype.get = hr;
+  D.prototype.has = vr;
+  D.prototype.set = mr;
   function yr(e, t) {
     var n = je(e),
       r = !n && Ce(e),
       i = !n && !r && bt(e),
       a = !n && !r && !i && _t(e),
       o = n || r || i || a,
-      u = o ? Dn(e.length, String) : [],
+      u = o ? Fn(e.length, String) : [],
       f = u.length;
     for (var l in e)
       (t || E.call(e, l)) &&
@@ -378,15 +378,15 @@ var St = Je((q, M) => {
     return K(e) && ie(e) == ut;
   }
   function _r(e) {
-    if (!$(e) || Fr(e)) return !1;
-    var t = Fe(e) ? Kn : Ln;
+    if (!$(e) || Dr(e)) return !1;
+    var t = De(e) ? Kn : Ln;
     return t.test(Gr(e));
   }
   function Er(e) {
     return K(e) && wt(e.length) && !!p[ie(e)];
   }
   function xr(e) {
-    if (!$(e)) return Dr(e);
+    if (!$(e)) return Fr(e);
     var t = yt(e),
       n = [];
     for (var r in e) (r == "constructor" && (t || !E.call(e, r))) || n.push(r);
@@ -397,7 +397,7 @@ var St = Je((q, M) => {
       wr(
         t,
         function (a, o) {
-          if ((i || (i = new F()), $(a))) Sr(e, t, o, n, vt, r, i);
+          if ((i || (i = new D()), $(a))) Sr(e, t, o, n, vt, r, i);
           else {
             var u = r ? r(Re(e, o), a, o + "", e, t, i) : void 0;
             u === void 0 && (u = a), $e(e, o, u);
@@ -432,7 +432,7 @@ var St = Je((q, M) => {
             ? ((b = !1), (g = Ir(f, !0)))
             : (g = [])
           : Kr(f) || Ce(f)
-          ? ((g = u), Ce(u) ? (g = Jr(u)) : (!$(u) || Fe(u)) && (g = Lr(f)))
+          ? ((g = u), Ce(u) ? (g = Jr(u)) : (!$(u) || De(u)) && (g = Lr(f)))
           : (b = !1);
     }
     b && (o.set(f, g), i(g, f, r, a, o), o.delete(f)), $e(e, n, g);
@@ -553,7 +553,7 @@ var St = Je((q, M) => {
       ? e !== "__proto__"
       : e === null;
   }
-  function Fr(e) {
+  function Dr(e) {
     return !!Xe && Xe in e;
   }
   function yt(e) {
@@ -561,7 +561,7 @@ var St = Je((q, M) => {
       n = (typeof t == "function" && t.prototype) || te;
     return e === n;
   }
-  function Dr(e) {
+  function Fr(e) {
     var t = [];
     if (e != null) for (var n in Object(e)) t.push(n);
     return t;
@@ -581,7 +581,7 @@ var St = Je((q, M) => {
           o[i] = r[t + i];
         i = -1;
         for (var u = Array(t + 1); ++i < t; ) u[i] = r[i];
-        return (u[t] = n(o)), Fn(e, this, u);
+        return (u[t] = n(o)), Dn(e, this, u);
       }
     );
   }
@@ -627,13 +627,13 @@ var St = Je((q, M) => {
         },
     je = Array.isArray;
   function Ne(e) {
-    return e != null && wt(e.length) && !Fe(e);
+    return e != null && wt(e.length) && !De(e);
   }
   function Hr(e) {
     return K(e) && Ne(e);
   }
   var bt = kn || Qr;
-  function Fe(e) {
+  function De(e) {
     if (!$(e)) return !1;
     var t = ie(e);
     return t == st || t == pn || t == fn || t == mn;
@@ -814,7 +814,7 @@ var qt = Je((oa, Wt) => {
     var t = {},
       n = 0,
       r = O(function (o) {
-        if (D(o)) {
+        if (F(o)) {
           var u = o;
           if (u.length !== 2)
             throw new Error(
@@ -936,7 +936,7 @@ var qt = Je((oa, Wt) => {
   function k(e) {
     return e instanceof s;
   }
-  function D(e) {
+  function F(e) {
     return {}.toString.call(e) === "[object Array]";
   }
   function J(e) {
@@ -947,7 +947,7 @@ var qt = Je((oa, Wt) => {
   }
   function m(e, t) {
     return (
-      D(t) || (t = [t]),
+      F(t) || (t = [t]),
       { status: !1, index: -1, value: null, furthest: e, expected: t }
     );
   }
@@ -1007,7 +1007,7 @@ var qt = Je((oa, Wt) => {
     return typeof e == "string" ? e.charAt(t) : e[t];
   }
   function di(e) {
-    if (!D(e)) throw new Error("not an array: " + e);
+    if (!F(e)) throw new Error("not an array: " + e);
   }
   function W(e) {
     if (typeof e != "number") throw new Error("not a number: " + e);
@@ -1182,7 +1182,7 @@ var qt = Je((oa, Wt) => {
     ) {
       var a = n[i];
       if (!k(a)) {
-        if (D(a)) {
+        if (F(a)) {
           var o = a.length === 2 && typeof a[0] == "string" && k(a[1]);
           if (o) {
             var u = a[0];
@@ -1203,7 +1203,7 @@ var qt = Je((oa, Wt) => {
       for (var g, b = {}, v = 0; v < r; v += 1) {
         var w, P;
         if (
-          (D(n[v]) ? ((w = n[v][0]), (P = n[v][1])) : ((w = null), (P = n[v])),
+          (F(n[v]) ? ((w = n[v][0]), (P = n[v][1])) : ((w = null), (P = n[v])),
           (g = y(P._(f, l), g)),
           !g.status)
         )
@@ -1411,7 +1411,7 @@ var qt = Je((oa, Wt) => {
     return this.skip(Lt(e));
   };
   c.desc = function (e) {
-    D(e) || (e = [e]);
+    F(e) || (e = [e]);
     var t = this;
     return s(function (n, r) {
       var i = t._(n, r);
@@ -1580,22 +1580,22 @@ var qt = Je((oa, Wt) => {
     Li = S(/[0-9]/).desc("a digit"),
     Mi = S(/[0-9]*/).desc("optional digits"),
     Ni = S(/[a-z]/i).desc("a letter"),
-    Fi = S(/[a-z]*/i).desc("optional letters"),
-    Di = S(/\s*/).desc("optional whitespace"),
+    Di = S(/[a-z]*/i).desc("optional letters"),
+    Fi = S(/\s*/).desc("optional whitespace"),
     zi = S(/\s+/).desc("whitespace"),
     Nt = Z("\r"),
-    Ft = Z(`
+    Dt = Z(`
 `),
-    Dt = Z(`\r
+    Ft = Z(`\r
 `),
-    zt = we(Dt, Ft, Nt).desc("newline"),
+    zt = we(Ft, Dt, Nt).desc("newline"),
     Wi = we(zt, Ue);
   s.all = ji;
   s.alt = we;
   s.any = Ci;
   s.cr = Nt;
   s.createLanguage = Ti;
-  s.crlf = Dt;
+  s.crlf = Ft;
   s.custom = Ai;
   s.digit = Li;
   s.digits = Mi;
@@ -1608,8 +1608,8 @@ var qt = Je((oa, Wt) => {
   s.isParser = k;
   s.lazy = Mt;
   s.letter = Ni;
-  s.letters = Fi;
-  s.lf = Ft;
+  s.letters = Di;
+  s.lf = Dt;
   s.lookahead = he;
   s.makeFailure = m;
   s.makeSuccess = d;
@@ -1618,7 +1618,7 @@ var qt = Je((oa, Wt) => {
   s.notFollowedBy = Lt;
   s.of = L;
   s.oneOf = Bi;
-  s.optWhitespace = Di;
+  s.optWhitespace = Fi;
   s.Parser = s;
   s.range = $i;
   s.regex = S;
@@ -1678,12 +1678,12 @@ function ke(e) {
     );
 }
 var Jt = Ve(St(), 1);
-var De = (e, t, n, r) => {
+var Fe = (e, t, n, r) => {
     !t || t.length === 0
       ? (e[n] = r)
       : t.length === 1
       ? (e[t[0]] = { [n]: r })
-      : (e[t[0]] || (e[t[0]] = {}), De(e[t[0]], t.slice(1), n, r));
+      : (e[t[0]] || (e[t[0]] = {}), Fe(e[t[0]], t.slice(1), n, r));
   },
   ze = (e) => {
     let t = [
@@ -1900,8 +1900,7 @@ async function Vi(e) {
         await e.$fs.writeFile(
           u,
           Kt(o, X[u] ?? Ht(), Se[u], e.settings.variableReferencePattern)
-        ),
-          console.log(await e.$fs.readFile(`${u}`, { encoding: "utf-8" }));
+        );
       }
     } else throw new Error("None-exhaustive if statement in writeResources");
   }
@@ -1912,7 +1911,7 @@ function Kt(e, t, n, r) {
     let o = {},
       u = ki(a.pattern, r);
     a.metadata?.keyName
-      ? De(o, a.metadata.parentKeys, a.metadata.keyName, u)
+      ? Fe(o, a.metadata.parentKeys, a.metadata.keyName, u)
       : a.metadata?.fileName
       ? (o[a.id.name.split(".").slice(1).join(".")] = u)
       : (o[a.id.name] = u),
