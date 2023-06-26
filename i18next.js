@@ -1890,20 +1890,17 @@ async function Vi(e) {
       let r = new Set(t.body.map((i) => i.id.name.split(".")[0]));
       for (let i of r) {
         let a = t.body
-          .filter((f) => f.id.name.startsWith(i))
-          .map((f) => ({
-            ...f,
-            id: { ...f.id, name: f.id.name.replace(`${i}.`, "") },
-          }));
-        console.log(a);
-        let o = { type: t.type, languageTag: t.languageTag, body: a };
-        console.log(o);
-        let u = n.replace("*", i);
-        console.log(u),
-          await e.$fs.writeFile(
-            u,
-            Kt(o, X[u] ?? Ht(), Se[u], e.settings.variableReferencePattern)
-          );
+            .filter((f) => f.id.name.startsWith(i))
+            .map((f) => ({
+              ...f,
+              id: { ...f.id, name: f.id.name.replace(`${i}.`, "") },
+            })),
+          o = { type: t.type, languageTag: t.languageTag, body: a },
+          u = n.replace("*", i);
+        await e.$fs.writeFile(
+          u,
+          Kt(o, X[u] ?? Ht(), Se[u], e.settings.variableReferencePattern)
+        );
       }
     } else throw new Error("None-exhaustive if statement in writeResources");
   }
