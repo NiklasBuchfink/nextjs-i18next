@@ -15,13 +15,12 @@ export async function defineConfig(env) {
     referenceLanguage: "en",
     plugins: [
       pluginJson({
-        // {
-        pathPattern:
-          // "client-page": "./app/i18n/locales/{language}/client-page.json",
-          // footer: "./app/i18n/locales/{language}/footer.json",
-          // "second-page": "./app/i18n/locales/{language}/second-page.json",
-          "./app/i18n/locales/{language}/translation.json",
-        // },
+        pathPattern: {
+          "client-page": "./app/i18n/locales/{language}/client-page.json",
+          footer: "./app/i18n/locales/{language}/footer.json",
+          "second-page": "./app/i18n/locales/{language}/second-page.json",
+          translation: "./app/i18n/locales/{language}/translation.json",
+        },
       }),
       standardLintRules(),
     ],
