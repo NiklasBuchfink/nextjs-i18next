@@ -1,6 +1,6 @@
 {
-  "title": "Client page asdf",
-  "counter_one": "one selected asdf",
+  "title": "Client page",
+  "counter_one": "one selected",
   "counter_other": "{{count}} selected",
   "counter_zero": "none selected",
   "back-to-home": "Back to home"
