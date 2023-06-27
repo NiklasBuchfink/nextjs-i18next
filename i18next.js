@@ -1889,9 +1889,9 @@ async function Vi(e) {
     else if (xe) {
       let [r] = n.split("/*.json");
       try {
-        await e.$fs.mkdir(r), console.log(`Created directory: ${r}`);
+        await e.$fs.readdir(r), console.log(`Already exists: ${r}`);
       } catch {
-        console.log(`Already exists: ${r}`);
+        await e.$fs.mkdir(r), console.log(`Created directory: ${r}`);
       }
       let i = new Set(t.body.map((a) => a.id.name.split(".")[0]));
       for (let a of i) {
