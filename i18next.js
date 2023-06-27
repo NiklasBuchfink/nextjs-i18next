@@ -1817,6 +1817,7 @@ async function Gi(e) {
   let [t] = e.settings.pathPattern.split("{language}");
   if (t === void 0)
     throw new Error("pathPattern must contain {language} placeholder");
+  console.log("getLanguages:", t);
   let n = await e.$fs.readdir(t),
     r = [];
   for (let i of n)
@@ -1834,8 +1835,9 @@ async function Hi(e) {
       i = e.settings.pathPattern.replace("{language}", n);
     try {
       if (xe) {
-        let a = `${i.replace("/*.json", "")}`,
-          o = await e.$fs.readdir(a);
+        let a = `${i.replace("/*.json", "")}`;
+        console.log("ReadResources: ", a);
+        let o = await e.$fs.readdir(a);
         for (let u of o) {
           if (e.settings.ignore?.some((c) => c === u) === !0) continue;
           let f = await e.$fs.readFile(`${a}/${u}`, { encoding: "utf-8" });
@@ -1891,7 +1893,7 @@ async function Vi(e) {
       try {
         await e.$fs.readdir(r);
       } catch {
-        console.log(r), await e.$fs.mkdir(r);
+        await e.$fs.mkdir(r), console.log(`Created directory ${r}`);
       }
       let i = new Set(t.body.map((a) => a.id.name.split(".")[0]));
       for (let a of i) {
