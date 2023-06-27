@@ -1888,6 +1888,7 @@ async function Vi(e) {
       );
     else if (xe) {
       let [r] = n.split("/*.json");
+      console.log(r);
       try {
         await e.$fs.readdir(r), console.log(`Already exists: ${r}`);
       } catch {
