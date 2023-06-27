@@ -1889,9 +1889,9 @@ async function Vi(e) {
     else if (xe) {
       let [r] = n.split(t.languageTag.name);
       try {
-        await e.$fs.readdir(r);
+        await e.$fs.mkdir(r), console.log(`Created directory ${r}`);
       } catch {
-        console.log(`Created directory ${r}`), await e.$fs.mkdir(r);
+        console.log(`Already exists: ${r}`);
       }
       let i = new Set(t.body.map((a) => a.id.name.split(".")[0]));
       for (let a of i) {
