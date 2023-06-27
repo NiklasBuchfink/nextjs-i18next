@@ -1887,9 +1887,9 @@ async function Vi(e) {
         Kt(t, X[n] ?? Ht(), Se[n], e.settings.variableReferencePattern)
       );
     else if (xe) {
-      let [r] = n.split(t.languageTag.name);
+      let [r] = n.split("/*.json");
       try {
-        await e.$fs.mkdir(r), console.log(`Created directory ${r}`);
+        await e.$fs.mkdir(r), console.log(`Created directory: ${r}`);
       } catch {
         console.log(`Already exists: ${r}`);
       }
