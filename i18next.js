@@ -41,9 +41,9 @@ var St = Je((q, M) => {
     pn = "[object GeneratorFunction]",
     dn = "[object Map]",
     hn = "[object Number]",
-    mn = "[object Null]",
+    vn = "[object Null]",
     ft = "[object Object]",
-    vn = "[object Proxy]",
+    mn = "[object Proxy]",
     yn = "[object RegExp]",
     bn = "[object Set]",
     wn = "[object String]",
@@ -55,16 +55,16 @@ var St = Je((q, M) => {
     Tn = "[object Float64Array]",
     On = "[object Int8Array]",
     Bn = "[object Int16Array]",
-    An = "[object Int32Array]",
-    In = "[object Uint8Array]",
+    In = "[object Int32Array]",
+    An = "[object Uint8Array]",
     $n = "[object Uint8ClampedArray]",
-    Cn = "[object Uint16Array]",
-    Rn = "[object Uint32Array]",
+    Rn = "[object Uint16Array]",
+    Cn = "[object Uint32Array]",
     jn = /[\\^$.*+?()[\]{}|]/g,
     Ln = /^\[object .+?Constructor\]$/,
     Mn = /^(?:0|[1-9]\d*)$/,
     p = {};
-  p[Pn] = p[Tn] = p[On] = p[Bn] = p[An] = p[In] = p[$n] = p[Cn] = p[Rn] = !0;
+  p[Pn] = p[Tn] = p[On] = p[Bn] = p[In] = p[An] = p[$n] = p[Rn] = p[Cn] = !0;
   p[ut] =
     p[sn] =
     p[xn] =
@@ -91,11 +91,11 @@ var St = Je((q, M) => {
     lt = typeof q == "object" && q && !q.nodeType && q,
     U = lt && typeof M == "object" && M && !M.nodeType && M,
     gt = U && U.exports === lt,
-    Ae = gt && ct.process,
+    Ie = gt && ct.process,
     Qe = (function () {
       try {
         var e = U && U.require && U.require("util").types;
-        return e || (Ae && Ae.binding && Ae.binding("util"));
+        return e || (Ie && Ie.binding && Ie.binding("util"));
       } catch {}
     })(),
     Ze = Qe && Qe.isTypedArray;
@@ -132,11 +132,11 @@ var St = Je((q, M) => {
   var Un = Array.prototype,
     Gn = Function.prototype,
     te = Object.prototype,
-    Ie = H["__core-js_shared__"],
+    Ae = H["__core-js_shared__"],
     ne = Gn.toString,
     E = te.hasOwnProperty,
     Xe = (function () {
-      var e = /[^.]+$/.exec((Ie && Ie.keys && Ie.keys.IE_PROTO) || "");
+      var e = /[^.]+$/.exec((Ae && Ae.keys && Ae.keys.IE_PROTO) || "");
       return e ? "Symbol(src)_1." + e : "";
     })(),
     pt = te.toString,
@@ -160,7 +160,7 @@ var St = Je((q, M) => {
     nt = Object.create,
     Jn = te.propertyIsEnumerable,
     Vn = Un.splice,
-    A = Ye ? Ye.toStringTag : void 0,
+    I = Ye ? Ye.toStringTag : void 0,
     ee = (function () {
       try {
         var e = Me(Object, "defineProperty");
@@ -182,7 +182,7 @@ var St = Je((q, M) => {
         return (e.prototype = void 0), n;
       };
     })();
-  function I(e) {
+  function A(e) {
     var t = -1,
       n = e == null ? 0 : e.length;
     for (this.clear(); ++t < n; ) {
@@ -217,11 +217,11 @@ var St = Je((q, M) => {
       this
     );
   }
-  I.prototype.clear = Xn;
-  I.prototype.delete = Yn;
-  I.prototype.get = er;
-  I.prototype.has = tr;
-  I.prototype.set = nr;
+  A.prototype.clear = Xn;
+  A.prototype.delete = Yn;
+  A.prototype.get = er;
+  A.prototype.has = tr;
+  A.prototype.set = nr;
   function x(e) {
     var t = -1,
       n = e == null ? 0 : e.length;
@@ -269,9 +269,9 @@ var St = Je((q, M) => {
   function sr() {
     (this.size = 0),
       (this.__data__ = {
-        hash: new I(),
+        hash: new A(),
         map: new (ht || x)(),
-        string: new I(),
+        string: new A(),
       });
   }
   function fr(e) {
@@ -309,10 +309,10 @@ var St = Je((q, M) => {
   function hr(e) {
     return this.__data__.get(e);
   }
-  function mr(e) {
+  function vr(e) {
     return this.__data__.has(e);
   }
-  function vr(e, t) {
+  function mr(e, t) {
     var n = this.__data__;
     if (n instanceof x) {
       var r = n.__data__;
@@ -325,11 +325,11 @@ var St = Je((q, M) => {
   D.prototype.clear = pr;
   D.prototype.delete = dr;
   D.prototype.get = hr;
-  D.prototype.has = mr;
-  D.prototype.set = vr;
+  D.prototype.has = vr;
+  D.prototype.set = mr;
   function yr(e, t) {
     var n = je(e),
-      r = !n && Re(e),
+      r = !n && Ce(e),
       i = !n && !r && bt(e),
       a = !n && !r && !i && _t(e),
       o = n || r || i || a,
@@ -342,7 +342,7 @@ var St = Je((q, M) => {
           (c == "length" ||
             (i && (c == "offset" || c == "parent")) ||
             (a && (c == "buffer" || c == "byteLength" || c == "byteOffset")) ||
-            vt(c, f))
+            mt(c, f))
         ) &&
         u.push(c);
     return u;
@@ -364,13 +364,13 @@ var St = Je((q, M) => {
       ? ee(e, t, { configurable: !0, enumerable: !0, value: n, writable: !0 })
       : (e[t] = n);
   }
-  var wr = Rr();
+  var wr = Cr();
   function ie(e) {
     return e == null
       ? e === void 0
         ? _n
-        : mn
-      : A && A in Object(e)
+        : vn
+      : I && I in Object(e)
       ? jr(e)
       : zr(e);
   }
@@ -392,14 +392,14 @@ var St = Je((q, M) => {
     for (var r in e) (r == "constructor" && (t || !E.call(e, r))) || n.push(r);
     return n;
   }
-  function mt(e, t, n, r, i) {
+  function vt(e, t, n, r, i) {
     e !== t &&
       wr(
         t,
         function (a, o) {
-          if ((i || (i = new D()), $(a))) Sr(e, t, o, n, mt, r, i);
+          if ((i || (i = new D()), $(a))) Sr(e, t, o, n, vt, r, i);
           else {
-            var u = r ? r(Ce(e, o), a, o + "", e, t, i) : void 0;
+            var u = r ? r(Re(e, o), a, o + "", e, t, i) : void 0;
             u === void 0 && (u = a), $e(e, o, u);
           }
         },
@@ -407,8 +407,8 @@ var St = Je((q, M) => {
       );
   }
   function Sr(e, t, n, r, i, a, o) {
-    var u = Ce(e, n),
-      f = Ce(t, n),
+    var u = Re(e, n),
+      f = Re(t, n),
       c = o.get(f);
     if (c) {
       $e(e, n, c);
@@ -417,22 +417,22 @@ var St = Je((q, M) => {
     var g = a ? a(u, f, n + "", e, t, o) : void 0,
       b = g === void 0;
     if (b) {
-      var m = je(f),
-        w = !m && bt(f),
-        P = !m && !w && _t(f);
+      var v = je(f),
+        w = !v && bt(f),
+        P = !v && !w && _t(f);
       (g = f),
-        m || w || P
+        v || w || P
           ? je(u)
             ? (g = u)
             : Hr(u)
-            ? (g = Ir(u))
+            ? (g = Ar(u))
             : w
             ? ((b = !1), (g = Or(f, !0)))
             : P
-            ? ((b = !1), (g = Ar(f, !0)))
+            ? ((b = !1), (g = Ir(f, !0)))
             : (g = [])
-          : Kr(f) || Re(f)
-          ? ((g = u), Re(u) ? (g = Jr(u)) : (!$(u) || De(u)) && (g = Lr(f)))
+          : Kr(f) || Ce(f)
+          ? ((g = u), Ce(u) ? (g = Jr(u)) : (!$(u) || De(u)) && (g = Lr(f)))
           : (b = !1);
     }
     b && (o.set(f, g), i(g, f, r, a, o), o.delete(f)), $e(e, n, g);
@@ -460,11 +460,11 @@ var St = Je((q, M) => {
     var t = new e.constructor(e.byteLength);
     return new et(t).set(new et(e)), t;
   }
-  function Ar(e, t) {
+  function Ir(e, t) {
     var n = t ? Br(e.buffer) : e.buffer;
     return new e.constructor(n, e.byteOffset, e.length);
   }
-  function Ir(e, t) {
+  function Ar(e, t) {
     var n = -1,
       r = e.length;
     for (t || (t = Array(r)); ++n < r; ) t[n] = e[n];
@@ -480,7 +480,7 @@ var St = Je((q, M) => {
     }
     return n;
   }
-  function Cr(e) {
+  function Rr(e) {
     return Pr(function (t, n) {
       var r = -1,
         i = n.length,
@@ -499,7 +499,7 @@ var St = Je((q, M) => {
       return t;
     });
   }
-  function Rr(e) {
+  function Cr(e) {
     return function (t, n, r) {
       for (var i = -1, a = Object(t), o = r(t), u = o.length; u--; ) {
         var f = o[e ? u : ++i];
@@ -517,19 +517,19 @@ var St = Je((q, M) => {
     return _r(n) ? n : void 0;
   }
   function jr(e) {
-    var t = E.call(e, A),
-      n = e[A];
+    var t = E.call(e, I),
+      n = e[I];
     try {
-      e[A] = void 0;
+      e[I] = void 0;
       var r = !0;
     } catch {}
     var i = pt.call(e);
-    return r && (t ? (e[A] = n) : delete e[A]), i;
+    return r && (t ? (e[I] = n) : delete e[I]), i;
   }
   function Lr(e) {
     return typeof e.constructor == "function" && !yt(e) ? Zn(dt(e)) : {};
   }
-  function vt(e, t) {
+  function mt(e, t) {
     var n = typeof e;
     return (
       (t = t ?? ot),
@@ -543,7 +543,7 @@ var St = Je((q, M) => {
   function Mr(e, t, n) {
     if (!$(n)) return !1;
     var r = typeof t;
-    return (r == "number" ? Ne(n) && vt(t, n.length) : r == "string" && t in n)
+    return (r == "number" ? Ne(n) && mt(t, n.length) : r == "string" && t in n)
       ? oe(n[t], e)
       : !1;
   }
@@ -585,7 +585,7 @@ var St = Je((q, M) => {
       }
     );
   }
-  function Ce(e, t) {
+  function Re(e, t) {
     if (!(t === "constructor" && typeof e[t] == "function") && t != "__proto__")
       return e[t];
   }
@@ -616,7 +616,7 @@ var St = Je((q, M) => {
   function oe(e, t) {
     return e === t || (e !== e && t !== t);
   }
-  var Re = it(
+  var Ce = it(
       (function () {
         return arguments;
       })()
@@ -636,7 +636,7 @@ var St = Je((q, M) => {
   function De(e) {
     if (!$(e)) return !1;
     var t = ie(e);
-    return t == st || t == pn || t == fn || t == vn;
+    return t == st || t == pn || t == fn || t == mn;
   }
   function wt(e) {
     return typeof e == "number" && e > -1 && e % 1 == 0 && e <= ot;
@@ -662,8 +662,8 @@ var St = Je((q, M) => {
   function Et(e) {
     return Ne(e) ? yr(e, !0) : xr(e);
   }
-  var Vr = Cr(function (e, t, n) {
-    mt(e, t, n);
+  var Vr = Rr(function (e, t, n) {
+    vt(e, t, n);
   });
   function kr(e) {
     return function () {
@@ -694,7 +694,7 @@ var qt = Je((oa, Wt) => {
       e(t[n], n, t);
     });
   }
-  function R(e, t, n) {
+  function C(e, t, n) {
     return (
       Zr(function (r, i, a) {
         t = e(t, r, i, a);
@@ -703,7 +703,7 @@ var qt = Je((oa, Wt) => {
     );
   }
   function O(e, t) {
-    return R(
+    return C(
       function (n, r, i, a) {
         return n.concat([e(r, i, a)]);
       },
@@ -712,7 +712,7 @@ var qt = Je((oa, Wt) => {
     );
   }
   function Xr(e) {
-    var t = R(
+    var t = C(
       function (n, r, i, a) {
         return n.concat(
           i === a.length - 1
@@ -742,7 +742,7 @@ var qt = Je((oa, Wt) => {
     return e[0] >> 7;
   }
   function ti(e) {
-    return R(
+    return C(
       function (t, n) {
         return t + n;
       },
@@ -751,7 +751,7 @@ var qt = Je((oa, Wt) => {
     );
   }
   function ni(e, t) {
-    return R(
+    return C(
       function (n, r) {
         return n || (e(r) ? r : n);
       },
@@ -759,7 +759,7 @@ var qt = Je((oa, Wt) => {
       t
     );
   }
-  function At() {
+  function It() {
     return typeof Buffer < "u";
   }
   function ri() {
@@ -767,14 +767,14 @@ var qt = Je((oa, Wt) => {
     var e = typeof Set < "u";
     return (s._supportsSet = e), e;
   }
-  function me() {
-    if (!At())
+  function ve() {
+    if (!It())
       throw new Error(
         "Buffer global does not exist; please use webpack if you need to parse Buffers in the browser."
       );
   }
-  function It(e) {
-    me();
+  function At(e) {
+    ve();
     var t = ti(e);
     if (t % 8 !== 0)
       throw new Error(
@@ -795,10 +795,10 @@ var qt = Je((oa, Wt) => {
     return new s(function (i, a) {
       var o = n + a;
       return o > i.length
-        ? v(a, n.toString() + " bytes")
+        ? m(a, n.toString() + " bytes")
         : d(
             o,
-            R(
+            C(
               function (u, f) {
                 var c = Yr(f, u.buf);
                 return { coll: u.coll.concat(c.v), buf: c.buf };
@@ -810,7 +810,7 @@ var qt = Je((oa, Wt) => {
     });
   }
   function ii(e) {
-    me();
+    ve();
     var t = {},
       n = 0,
       r = O(function (o) {
@@ -838,11 +838,11 @@ var qt = Je((oa, Wt) => {
       a = O(function (o) {
         return o[1];
       }, r);
-    return It(a).map(function (o) {
+    return At(a).map(function (o) {
       var u = O(function (f, c) {
         return [f, o[c]];
       }, i);
-      return R(
+      return C(
         function (f, c) {
           return c[0] !== null && (f[c[0]] = c[1]), f;
         },
@@ -854,9 +854,9 @@ var qt = Je((oa, Wt) => {
   function _(e, t) {
     return new s(function (n, r) {
       return (
-        me(),
+        ve(),
         r + t > n.length
-          ? v(r, t + " bytes for " + e)
+          ? m(r, t + " bytes for " + e)
           : d(r + t, n.slice(r, r + t))
       );
     });
@@ -874,13 +874,13 @@ var qt = Je((oa, Wt) => {
   function ui(e) {
     return typeof e == "number" && Math.floor(e) === e;
   }
-  function ve(e, t) {
+  function me(e, t) {
     if (!ui(t) || t < 0 || t > 6)
       throw new Error(e + " requires integer length in range [0, 6].");
   }
   function se(e) {
     return (
-      ve("uintBE", e),
+      me("uintBE", e),
       _("uintBE(" + e + ")", e).map(function (t) {
         return t.readUIntBE(0, e);
       })
@@ -888,7 +888,7 @@ var qt = Je((oa, Wt) => {
   }
   function fe(e) {
     return (
-      ve("uintLE", e),
+      me("uintLE", e),
       _("uintLE(" + e + ")", e).map(function (t) {
         return t.readUIntLE(0, e);
       })
@@ -896,7 +896,7 @@ var qt = Je((oa, Wt) => {
   }
   function ce(e) {
     return (
-      ve("intBE", e),
+      me("intBE", e),
       _("intBE(" + e + ")", e).map(function (t) {
         return t.readIntBE(0, e);
       })
@@ -904,7 +904,7 @@ var qt = Je((oa, Wt) => {
   }
   function le(e) {
     return (
-      ve("intLE", e),
+      me("intLE", e),
       _("intLE(" + e + ")", e).map(function (t) {
         return t.readIntLE(0, e);
       })
@@ -940,12 +940,12 @@ var qt = Je((oa, Wt) => {
     return {}.toString.call(e) === "[object Array]";
   }
   function J(e) {
-    return At() && Buffer.isBuffer(e);
+    return It() && Buffer.isBuffer(e);
   }
   function d(e, t) {
     return { status: !0, index: e, value: t, furthest: -1, expected: [] };
   }
-  function v(e, t) {
+  function m(e, t) {
     return (
       F(t) || (t = [t]),
       { status: !1, index: -1, value: null, furthest: e, expected: t }
@@ -1014,20 +1014,20 @@ var qt = Je((oa, Wt) => {
   }
   function hi(e) {
     if (!(e instanceof RegExp)) throw new Error("not a regexp: " + e);
-    for (var t = Rt(e), n = 0; n < t.length; n++) {
+    for (var t = Ct(e), n = 0; n < t.length; n++) {
       var r = t.charAt(n);
       if (r !== "i" && r !== "m" && r !== "u" && r !== "s")
         throw new Error('unsupported regexp flag "' + r + '": ' + e);
     }
   }
-  function C(e) {
+  function R(e) {
     if (typeof e != "function") throw new Error("not a function: " + e);
   }
   function V(e) {
     if (typeof e != "string") throw new Error("not a string: " + e);
   }
-  var mi = 2,
-    vi = 3,
+  var vi = 2,
+    mi = 3,
     B = 8,
     yi = B * 5,
     bi = B * 4,
@@ -1078,15 +1078,15 @@ var qt = Je((oa, Wt) => {
     if (J(e)) {
       var g = r - (r % B),
         b = r - g,
-        m = Ot(g, yi, bi + B, e.length),
-        w = e.slice(m.from, m.to),
+        v = Ot(g, yi, bi + B, e.length),
+        w = e.slice(v.from, v.to),
         P = _i(w.toJSON().data, B),
         Vt = O(function (T) {
           return O(function (Pe) {
             return ge(Pe.toString(16), 2, "0");
           }, T);
         }, P);
-      (f = Ei(m)),
+      (f = Ei(v)),
         (o = g / B),
         (a = b * 3),
         b >= 4 && (a += 1),
@@ -1102,7 +1102,7 @@ var qt = Je((oa, Wt) => {
       var Ge = e.split(/\r\n|[\n\r\u2028\u2029]/);
       (a = n.column - 1),
         (o = n.line - 1),
-        (f = Ot(o, mi, vi, Ge.length)),
+        (f = Ot(o, vi, mi, Ge.length)),
         (u = Ge.slice(f.from, f.to)),
         (c = f.to.toString().length);
     }
@@ -1110,7 +1110,7 @@ var qt = Je((oa, Wt) => {
     J(e) &&
       ((c = ((f.to > 0 ? f.to - 1 : f.to) * 8).toString(16).length),
       c < 2 && (c = 2));
-    var Qt = R(
+    var Qt = C(
       function (T, Pe, Te) {
         var He = Te === kt,
           Zt = He ? "> " : Tt,
@@ -1132,7 +1132,7 @@ var qt = Je((oa, Wt) => {
     return Qt.join(`
 `);
   }
-  function Ct(e, t) {
+  function Rt(e, t) {
     return [
       `
 `,
@@ -1149,7 +1149,7 @@ var qt = Je((oa, Wt) => {
 `,
     ].join("");
   }
-  function Rt(e) {
+  function Ct(e) {
     return e.flags !== void 0
       ? e.flags
       : [
@@ -1161,7 +1161,7 @@ var qt = Je((oa, Wt) => {
         ].join("");
   }
   function Si(e) {
-    return RegExp("^(?:" + e.source + ")", Rt(e));
+    return RegExp("^(?:" + e.source + ")", Ct(e));
   }
   function be() {
     for (var e = [].slice.call(arguments), t = e.length, n = 0; n < t; n += 1)
@@ -1200,10 +1200,10 @@ var qt = Je((oa, Wt) => {
     if (t === 0)
       throw new Error("seqObj expects at least one named parser, found zero");
     return s(function (f, c) {
-      for (var g, b = {}, m = 0; m < r; m += 1) {
+      for (var g, b = {}, v = 0; v < r; v += 1) {
         var w, P;
         if (
-          (F(n[m]) ? ((w = n[m][0]), (P = n[m][1])) : ((w = null), (P = n[m])),
+          (F(n[v]) ? ((w = n[v][0]), (P = n[v][1])) : ((w = null), (P = n[v])),
           (g = y(P._(f, c), g)),
           !g.status)
         )
@@ -1218,7 +1218,7 @@ var qt = Je((oa, Wt) => {
     if (e.length === 0) throw new Error("seqMap needs at least one argument");
     var t = e.pop();
     return (
-      C(t),
+      R(t),
       be.apply(null, e).map(function (n) {
         return t.apply(null, n);
       })
@@ -1275,7 +1275,7 @@ var qt = Je((oa, Wt) => {
   l.tryParse = function (e) {
     var t = this.parse(e);
     if (t.status) return t.value;
-    var n = Ct(e, t),
+    var n = Rt(e, t),
       r = new Error(n);
     throw ((r.type = "ParsimmonError"), (r.result = t), r);
   };
@@ -1365,7 +1365,7 @@ var qt = Je((oa, Wt) => {
     });
   };
   l.map = function (e) {
-    C(e);
+    R(e);
     var t = this;
     return s(function (n, r) {
       var i = t._(n, r);
@@ -1373,7 +1373,7 @@ var qt = Je((oa, Wt) => {
     });
   };
   l.contramap = function (e) {
-    C(e);
+    R(e);
     var t = this;
     return s(function (n, r) {
       var i = t.parse(e(n.slice(r)));
@@ -1381,7 +1381,7 @@ var qt = Je((oa, Wt) => {
     });
   };
   l.promap = function (e, t) {
-    return C(e), C(t), this.contramap(e).map(t);
+    return R(e), R(t), this.contramap(e).map(t);
   };
   l.skip = function (e) {
     return be(this, e).map(function (t) {
@@ -1441,11 +1441,11 @@ var qt = Je((oa, Wt) => {
     return s(function (n, r) {
       var i = r + e.length,
         a = n.slice(r, i);
-      return a === e ? d(i, a) : v(r, t);
+      return a === e ? d(i, a) : m(r, t);
     });
   }
   function Oi(e) {
-    if ((me(), W(e), e > 255))
+    if ((ve(), W(e), e > 255))
       throw new Error(
         "Value specified to byte constructor (" +
           e +
@@ -1456,7 +1456,7 @@ var qt = Je((oa, Wt) => {
     var t = (e > 15 ? "0x" : "0x0") + e.toString(16);
     return s(function (n, r) {
       var i = ye(n, r);
-      return i === e ? d(r + 1, i) : v(r, t);
+      return i === e ? d(r + 1, i) : m(r, t);
     });
   }
   function S(e, t) {
@@ -1472,9 +1472,9 @@ var qt = Je((oa, Wt) => {
           return d(a + u.length, f);
         }
         var c = "valid match group (0 to " + o.length + ") in " + r;
-        return v(a, c);
+        return m(a, c);
       }
-      return v(a, r);
+      return m(a, r);
     });
   }
   function L(e) {
@@ -1484,7 +1484,7 @@ var qt = Je((oa, Wt) => {
   }
   function _e(e) {
     return s(function (t, n) {
-      return v(n, e);
+      return m(n, e);
     });
   }
   function he(e) {
@@ -1503,18 +1503,18 @@ var qt = Je((oa, Wt) => {
       s(function (t, n) {
         var r = e._(t, n),
           i = t.slice(n, r.index);
-        return r.status ? v(n, 'not "' + i + '"') : d(n, null);
+        return r.status ? m(n, 'not "' + i + '"') : d(n, null);
       })
     );
   }
   function Ee(e) {
     return (
-      C(e),
+      R(e),
       s(function (t, n) {
         var r = ye(t, n);
         return n < t.length && e(r)
           ? d(n + 1, r)
-          : v(n, "a character/byte matching " + e);
+          : m(n, "a character/byte matching " + e);
       })
     );
   }
@@ -1524,22 +1524,22 @@ var qt = Je((oa, Wt) => {
       return e.indexOf(r) >= 0;
     }).desc(t);
   }
-  function Ai(e) {
+  function Ii(e) {
     return Ee(function (t) {
       return e.indexOf(t) < 0;
     }).desc("none of '" + e + "'");
   }
-  function Ii(e) {
-    return s(e(d, v));
+  function Ai(e) {
+    return s(e(d, m));
   }
   function $i(e, t) {
     return Ee(function (n) {
       return e <= n && n <= t;
     }).desc(e + "-" + t);
   }
-  function Ci(e) {
+  function Ri(e) {
     return (
-      C(e),
+      R(e),
       s(function (t, n) {
         for (var r = n; r < t.length && e(ye(t, r)); ) r++;
         return d(r, t.slice(n, r));
@@ -1568,14 +1568,14 @@ var qt = Je((oa, Wt) => {
   var Q = s(function (e, t) {
       return d(t, $t(e, t));
     }),
-    Ri = s(function (e, t) {
-      return t >= e.length ? v(t, "any character/byte") : d(t + 1, ye(e, t));
+    Ci = s(function (e, t) {
+      return t >= e.length ? m(t, "any character/byte") : d(t + 1, ye(e, t));
     }),
     ji = s(function (e, t) {
       return d(e.length, e.slice(t));
     }),
     Ue = s(function (e, t) {
-      return t < e.length ? v(t, "EOF") : d(t, null);
+      return t < e.length ? m(t, "EOF") : d(t, null);
     }),
     Li = S(/[0-9]/).desc("a digit"),
     Mi = S(/[0-9]*/).desc("optional digits"),
@@ -1592,18 +1592,18 @@ var qt = Je((oa, Wt) => {
     Wi = we(zt, Ue);
   s.all = ji;
   s.alt = we;
-  s.any = Ri;
+  s.any = Ci;
   s.cr = Nt;
   s.createLanguage = Ti;
   s.crlf = Ft;
-  s.custom = Ii;
+  s.custom = Ai;
   s.digit = Li;
   s.digits = Mi;
   s.empty = qe;
   s.end = Wi;
   s.eof = Ue;
   s.fail = _e;
-  s.formatError = Ct;
+  s.formatError = Rt;
   s.index = Q;
   s.isParser = k;
   s.lazy = Mt;
@@ -1611,10 +1611,10 @@ var qt = Je((oa, Wt) => {
   s.letters = Di;
   s.lf = Dt;
   s.lookahead = he;
-  s.makeFailure = v;
+  s.makeFailure = m;
   s.makeSuccess = d;
   s.newline = zt;
-  s.noneOf = Ai;
+  s.noneOf = Ii;
   s.notFollowedBy = Lt;
   s.of = L;
   s.oneOf = Bi;
@@ -1630,13 +1630,13 @@ var qt = Je((oa, Wt) => {
   s.seqObj = Pi;
   s.string = Z;
   s.succeed = L;
-  s.takeWhile = Ci;
+  s.takeWhile = Ri;
   s.test = Ee;
   s.whitespace = zi;
   s["fantasy-land/empty"] = qe;
   s["fantasy-land/of"] = L;
   s.Binary = {
-    bitSeq: It,
+    bitSeq: At,
     bitSeqObj: ii,
     byte: Oi,
     buffer: ai,
@@ -1668,11 +1668,7 @@ function Be(e) {
   return (t) => (n) => e({ settings: t, env: n });
 }
 function ke(e) {
-  if (e.pathPattern === void 0)
-    throw new Error(
-      "The pathPattern setting must be defined and include the {language} placeholder. An example would be './resources/{language}.json'."
-    );
-  if (e.pathPattern.includes("{language}") === !1)
+  if (e.pathPattern === void 0 || e.pathPattern.includes("{language}") === !1)
     throw new Error(
       "The pathPattern setting must be defined and include the {language} placeholder. An example would be './resources/{language}.json'."
     );
@@ -1801,7 +1797,7 @@ var Ui = Be(({ settings: e, env: t }) => ({
   id: "inlang.plugin-i18next",
   async config() {
     ke(e);
-    let n = { ignore: [], variableReferencePattern: ["{", "}"], ...e };
+    let n = { variableReferencePattern: ["{{", "}}"], ignore: [], ...e };
     return (
       (xe = e.pathPattern.endsWith("/*.json")),
       {
@@ -1888,11 +1884,10 @@ async function Vi(e) {
       );
     else if (xe) {
       let [r] = n.split("/*.json");
-      console.log(r);
       try {
-        await e.$fs.readdir(r), console.log(`Already exists: ${r}`);
+        await e.$fs.readdir(r);
       } catch {
-        await e.$fs.mkdir(r), console.log(`Created directory: ${r}`);
+        await e.$fs.mkdir(r);
       }
       let i = new Set(t.body.map((a) => a.id.name.split(".")[0]));
       for (let a of i) {
