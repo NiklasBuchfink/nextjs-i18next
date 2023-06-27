@@ -58,13 +58,13 @@ var St = Je((q, M) => {
     An = "[object Int32Array]",
     In = "[object Uint8Array]",
     $n = "[object Uint8ClampedArray]",
-    Rn = "[object Uint16Array]",
-    Cn = "[object Uint32Array]",
+    Cn = "[object Uint16Array]",
+    Rn = "[object Uint32Array]",
     jn = /[\\^$.*+?()[\]{}|]/g,
     Ln = /^\[object .+?Constructor\]$/,
     Mn = /^(?:0|[1-9]\d*)$/,
     p = {};
-  p[Pn] = p[Tn] = p[On] = p[Bn] = p[An] = p[In] = p[$n] = p[Rn] = p[Cn] = !0;
+  p[Pn] = p[Tn] = p[On] = p[Bn] = p[An] = p[In] = p[$n] = p[Cn] = p[Rn] = !0;
   p[ut] =
     p[sn] =
     p[xn] =
@@ -329,7 +329,7 @@ var St = Je((q, M) => {
   D.prototype.set = vr;
   function yr(e, t) {
     var n = je(e),
-      r = !n && Ce(e),
+      r = !n && Re(e),
       i = !n && !r && bt(e),
       a = !n && !r && !i && _t(e),
       o = n || r || i || a,
@@ -364,7 +364,7 @@ var St = Je((q, M) => {
       ? ee(e, t, { configurable: !0, enumerable: !0, value: n, writable: !0 })
       : (e[t] = n);
   }
-  var wr = Cr();
+  var wr = Rr();
   function ie(e) {
     return e == null
       ? e === void 0
@@ -399,7 +399,7 @@ var St = Je((q, M) => {
         function (a, o) {
           if ((i || (i = new D()), $(a))) Sr(e, t, o, n, mt, r, i);
           else {
-            var u = r ? r(Re(e, o), a, o + "", e, t, i) : void 0;
+            var u = r ? r(Ce(e, o), a, o + "", e, t, i) : void 0;
             u === void 0 && (u = a), $e(e, o, u);
           }
         },
@@ -407,8 +407,8 @@ var St = Je((q, M) => {
       );
   }
   function Sr(e, t, n, r, i, a, o) {
-    var u = Re(e, n),
-      f = Re(t, n),
+    var u = Ce(e, n),
+      f = Ce(t, n),
       c = o.get(f);
     if (c) {
       $e(e, n, c);
@@ -431,8 +431,8 @@ var St = Je((q, M) => {
             : P
             ? ((b = !1), (g = Ar(f, !0)))
             : (g = [])
-          : Kr(f) || Ce(f)
-          ? ((g = u), Ce(u) ? (g = Jr(u)) : (!$(u) || De(u)) && (g = Lr(f)))
+          : Kr(f) || Re(f)
+          ? ((g = u), Re(u) ? (g = Jr(u)) : (!$(u) || De(u)) && (g = Lr(f)))
           : (b = !1);
     }
     b && (o.set(f, g), i(g, f, r, a, o), o.delete(f)), $e(e, n, g);
@@ -480,7 +480,7 @@ var St = Je((q, M) => {
     }
     return n;
   }
-  function Rr(e) {
+  function Cr(e) {
     return Pr(function (t, n) {
       var r = -1,
         i = n.length,
@@ -499,7 +499,7 @@ var St = Je((q, M) => {
       return t;
     });
   }
-  function Cr(e) {
+  function Rr(e) {
     return function (t, n, r) {
       for (var i = -1, a = Object(t), o = r(t), u = o.length; u--; ) {
         var f = o[e ? u : ++i];
@@ -585,7 +585,7 @@ var St = Je((q, M) => {
       }
     );
   }
-  function Re(e, t) {
+  function Ce(e, t) {
     if (!(t === "constructor" && typeof e[t] == "function") && t != "__proto__")
       return e[t];
   }
@@ -616,7 +616,7 @@ var St = Je((q, M) => {
   function oe(e, t) {
     return e === t || (e !== e && t !== t);
   }
-  var Ce = it(
+  var Re = it(
       (function () {
         return arguments;
       })()
@@ -662,7 +662,7 @@ var St = Je((q, M) => {
   function Et(e) {
     return Ne(e) ? yr(e, !0) : xr(e);
   }
-  var Vr = Rr(function (e, t, n) {
+  var Vr = Cr(function (e, t, n) {
     mt(e, t, n);
   });
   function kr(e) {
@@ -694,7 +694,7 @@ var qt = Je((oa, Wt) => {
       e(t[n], n, t);
     });
   }
-  function C(e, t, n) {
+  function R(e, t, n) {
     return (
       Zr(function (r, i, a) {
         t = e(t, r, i, a);
@@ -703,7 +703,7 @@ var qt = Je((oa, Wt) => {
     );
   }
   function O(e, t) {
-    return C(
+    return R(
       function (n, r, i, a) {
         return n.concat([e(r, i, a)]);
       },
@@ -712,7 +712,7 @@ var qt = Je((oa, Wt) => {
     );
   }
   function Xr(e) {
-    var t = C(
+    var t = R(
       function (n, r, i, a) {
         return n.concat(
           i === a.length - 1
@@ -742,7 +742,7 @@ var qt = Je((oa, Wt) => {
     return e[0] >> 7;
   }
   function ti(e) {
-    return C(
+    return R(
       function (t, n) {
         return t + n;
       },
@@ -751,7 +751,7 @@ var qt = Je((oa, Wt) => {
     );
   }
   function ni(e, t) {
-    return C(
+    return R(
       function (n, r) {
         return n || (e(r) ? r : n);
       },
@@ -798,7 +798,7 @@ var qt = Je((oa, Wt) => {
         ? v(a, n.toString() + " bytes")
         : d(
             o,
-            C(
+            R(
               function (u, f) {
                 var c = Yr(f, u.buf);
                 return { coll: u.coll.concat(c.v), buf: c.buf };
@@ -842,7 +842,7 @@ var qt = Je((oa, Wt) => {
       var u = O(function (f, c) {
         return [f, o[c]];
       }, i);
-      return C(
+      return R(
         function (f, c) {
           return c[0] !== null && (f[c[0]] = c[1]), f;
         },
@@ -1014,13 +1014,13 @@ var qt = Je((oa, Wt) => {
   }
   function hi(e) {
     if (!(e instanceof RegExp)) throw new Error("not a regexp: " + e);
-    for (var t = Ct(e), n = 0; n < t.length; n++) {
+    for (var t = Rt(e), n = 0; n < t.length; n++) {
       var r = t.charAt(n);
       if (r !== "i" && r !== "m" && r !== "u" && r !== "s")
         throw new Error('unsupported regexp flag "' + r + '": ' + e);
     }
   }
-  function R(e) {
+  function C(e) {
     if (typeof e != "function") throw new Error("not a function: " + e);
   }
   function V(e) {
@@ -1110,7 +1110,7 @@ var qt = Je((oa, Wt) => {
     J(e) &&
       ((c = ((f.to > 0 ? f.to - 1 : f.to) * 8).toString(16).length),
       c < 2 && (c = 2));
-    var Qt = C(
+    var Qt = R(
       function (T, Pe, Te) {
         var He = Te === kt,
           Zt = He ? "> " : Tt,
@@ -1132,7 +1132,7 @@ var qt = Je((oa, Wt) => {
     return Qt.join(`
 `);
   }
-  function Rt(e, t) {
+  function Ct(e, t) {
     return [
       `
 `,
@@ -1149,7 +1149,7 @@ var qt = Je((oa, Wt) => {
 `,
     ].join("");
   }
-  function Ct(e) {
+  function Rt(e) {
     return e.flags !== void 0
       ? e.flags
       : [
@@ -1161,7 +1161,7 @@ var qt = Je((oa, Wt) => {
         ].join("");
   }
   function Si(e) {
-    return RegExp("^(?:" + e.source + ")", Ct(e));
+    return RegExp("^(?:" + e.source + ")", Rt(e));
   }
   function be() {
     for (var e = [].slice.call(arguments), t = e.length, n = 0; n < t; n += 1)
@@ -1218,7 +1218,7 @@ var qt = Je((oa, Wt) => {
     if (e.length === 0) throw new Error("seqMap needs at least one argument");
     var t = e.pop();
     return (
-      R(t),
+      C(t),
       be.apply(null, e).map(function (n) {
         return t.apply(null, n);
       })
@@ -1275,7 +1275,7 @@ var qt = Je((oa, Wt) => {
   l.tryParse = function (e) {
     var t = this.parse(e);
     if (t.status) return t.value;
-    var n = Rt(e, t),
+    var n = Ct(e, t),
       r = new Error(n);
     throw ((r.type = "ParsimmonError"), (r.result = t), r);
   };
@@ -1365,7 +1365,7 @@ var qt = Je((oa, Wt) => {
     });
   };
   l.map = function (e) {
-    R(e);
+    C(e);
     var t = this;
     return s(function (n, r) {
       var i = t._(n, r);
@@ -1373,7 +1373,7 @@ var qt = Je((oa, Wt) => {
     });
   };
   l.contramap = function (e) {
-    R(e);
+    C(e);
     var t = this;
     return s(function (n, r) {
       var i = t.parse(e(n.slice(r)));
@@ -1381,7 +1381,7 @@ var qt = Je((oa, Wt) => {
     });
   };
   l.promap = function (e, t) {
-    return R(e), R(t), this.contramap(e).map(t);
+    return C(e), C(t), this.contramap(e).map(t);
   };
   l.skip = function (e) {
     return be(this, e).map(function (t) {
@@ -1509,7 +1509,7 @@ var qt = Je((oa, Wt) => {
   }
   function Ee(e) {
     return (
-      R(e),
+      C(e),
       s(function (t, n) {
         var r = ye(t, n);
         return n < t.length && e(r)
@@ -1537,9 +1537,9 @@ var qt = Je((oa, Wt) => {
       return e <= n && n <= t;
     }).desc(e + "-" + t);
   }
-  function Ri(e) {
+  function Ci(e) {
     return (
-      R(e),
+      C(e),
       s(function (t, n) {
         for (var r = n; r < t.length && e(ye(t, r)); ) r++;
         return d(r, t.slice(n, r));
@@ -1568,7 +1568,7 @@ var qt = Je((oa, Wt) => {
   var Q = s(function (e, t) {
       return d(t, $t(e, t));
     }),
-    Ci = s(function (e, t) {
+    Ri = s(function (e, t) {
       return t >= e.length ? v(t, "any character/byte") : d(t + 1, ye(e, t));
     }),
     ji = s(function (e, t) {
@@ -1592,7 +1592,7 @@ var qt = Je((oa, Wt) => {
     Wi = we(zt, Ue);
   s.all = ji;
   s.alt = we;
-  s.any = Ci;
+  s.any = Ri;
   s.cr = Nt;
   s.createLanguage = Ti;
   s.crlf = Ft;
@@ -1603,7 +1603,7 @@ var qt = Je((oa, Wt) => {
   s.end = Wi;
   s.eof = Ue;
   s.fail = _e;
-  s.formatError = Rt;
+  s.formatError = Ct;
   s.index = Q;
   s.isParser = k;
   s.lazy = Mt;
@@ -1630,7 +1630,7 @@ var qt = Je((oa, Wt) => {
   s.seqObj = Pi;
   s.string = Z;
   s.succeed = L;
-  s.takeWhile = Ri;
+  s.takeWhile = Ci;
   s.test = Ee;
   s.whitespace = zi;
   s["fantasy-land/empty"] = qe;
@@ -1817,7 +1817,6 @@ async function Gi(e) {
   let [t] = e.settings.pathPattern.split("{language}");
   if (t === void 0)
     throw new Error("pathPattern must contain {language} placeholder");
-  console.log("getLanguages:", t);
   let n = await e.$fs.readdir(t),
     r = [];
   for (let i of n)
@@ -1835,9 +1834,8 @@ async function Hi(e) {
       i = e.settings.pathPattern.replace("{language}", n);
     try {
       if (xe) {
-        let a = `${i.replace("/*.json", "")}`;
-        console.log("ReadResources: ", a);
-        let o = await e.$fs.readdir(a);
+        let a = `${i.replace("/*.json", "")}`,
+          o = await e.$fs.readdir(a);
         for (let u of o) {
           if (e.settings.ignore?.some((c) => c === u) === !0) continue;
           let f = await e.$fs.readFile(`${a}/${u}`, { encoding: "utf-8" });
@@ -1893,7 +1891,7 @@ async function Vi(e) {
       try {
         await e.$fs.readdir(r);
       } catch {
-        await e.$fs.mkdir(r), console.log(`Created directory ${r}`);
+        console.log(`Created directory ${r}`), await e.$fs.mkdir(r);
       }
       let i = new Set(t.body.map((a) => a.id.name.split(".")[0]));
       for (let a of i) {
