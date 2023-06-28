@@ -21,9 +21,6 @@ export async function defineConfig(env) {
           "second-page": "./app/i18n/locales/{language}/second-page.json",
           translation: "./app/i18n/locales/{language}/translation.json",
         },
-        format: {
-          endsWithNewLine: false,
-        },
       }),
       standardLintRules(),
     ],
