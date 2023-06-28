@@ -2,10 +2,9 @@
  * @type { import("@inlang/core/config").DefineConfig }
  */
 export async function defineConfig(env) {
-  const { default: pluginJson } = await env.$import("./i18next.js");
-  // const { default: pluginJson } = await env.$import(
-  //   "https://cdn.jsdelivr.net/gh/samuelstroschein/inlang-plugin-json@2.4.0/dist/index.js"
-  // );
+  const { default: i18nextPlugin } = await env.$import(
+    "https://cdn.jsdelivr.net/gh/samuelstroschein/inlang-plugin-json@2/dist/index.js"
+  );
 
   const { default: standardLintRules } = await env.$import(
     "https://cdn.jsdelivr.net/npm/@inlang/plugin-standard-lint-rules@3/dist/index.js"
@@ -15,12 +14,7 @@ export async function defineConfig(env) {
     referenceLanguage: "en",
     plugins: [
       pluginJson({
-        pathPattern: {
-          "client-page": "./app/i18n/locales/{language}/client-page.json",
-          footer: "./app/i18n/locales/{language}/footer.json",
-          "second-page": "./app/i18n/locales/{language}/second-page.json",
-          translation: "./app/i18n/locales/{language}/translation.json",
-        },
+        pathPattern: "./app/i18n/locales/{language}/*.json",
       }),
       standardLintRules(),
     ],
